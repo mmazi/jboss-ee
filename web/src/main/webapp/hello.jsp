@@ -6,7 +6,7 @@
     <title>Hello jsp</title>
 </head>
 <body>
-<form method="get" action="hell/aoeu">
+<form method="get" action="hello/aoeu">
     <input type="text"name="name" value="Matija"/>
     <input type="text" name="a" value="b"/>
     <input type="submit" value="Pošlji"/>
