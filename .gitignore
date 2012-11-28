@@ -4,3 +4,4 @@
 *.ids
 .idea
 target/
+.idea
