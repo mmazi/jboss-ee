@@ -1,4 +1,4 @@
-package com.housing.javaee6demo;
+package javaee6demo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class MessagesAction implements Serializable {
     private ResourceBundle messages;
 
     public MessagesAction() {
-        messages = ResourceBundle.getBundle("com.housing.javaee6demo.myMessages", FacesContext.getCurrentInstance().getExternalContext().getRequestLocale());
+        messages = ResourceBundle.getBundle("javaee6demo.myMessages", FacesContext.getCurrentInstance().getExternalContext().getRequestLocale());
     }
 
     public void doSomething() {

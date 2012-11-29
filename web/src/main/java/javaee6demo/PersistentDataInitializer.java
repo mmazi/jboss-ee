@@ -1,6 +1,6 @@
-package com.housing.javaee6demo;
+package javaee6demo;
 
-import com.housing.javaee6demo.model.*;
+import javaee6demo.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
