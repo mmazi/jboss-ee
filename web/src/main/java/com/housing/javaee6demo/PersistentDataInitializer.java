@@ -1,10 +1,6 @@
 package com.housing.javaee6demo;
 
-import com.housing.javaee6demo.model.Order;
-import com.housing.javaee6demo.model.Product;
-import com.housing.javaee6demo.model.Role;
-import com.housing.javaee6demo.model.Unit;
-import com.housing.javaee6demo.model.User;
+import com.housing.javaee6demo.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +9,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.Arrays;
 
 /**
@@ -54,12 +51,14 @@ public class PersistentDataInitializer {
 
         log.debug("Done initializing, now querying...");
 
-        Unit unitKgFind = em.find(Unit.class, "kg");
-        log.debug("kg unit (find): {}", unitKgFind);
-        Unit unitKgQuery = em.createQuery("select u from Unit u where u.id = :uid", Unit.class).setParameter("uid", "kg").getSingleResult();
-        log.debug("kg unit (query): {}", unitKgQuery);
+        Unit unitKgByFind = em.find(Unit.class, "kg");
+        log.debug("kg unit (find): {}", unitKgByFind);
+        TypedQuery<Unit> unitQuery = em.createQuery("select u from Unit u where u.id = :uid", Unit.class);
+        unitQuery.setParameter("uid", "kg");
+        Unit unitKgByQuery = unitQuery.getSingleResult();
+        log.debug("kg unit (query): {}", unitKgByQuery);
 
-        log.debug("Enakost kg: {}, {}", unitKgFind == unitKgQuery, kg == unitKgFind);
+        log.debug("Enakost kg: {}, {}", unitKgByFind == unitKgByQuery, kg == unitKgByFind);
 
         Product moka = em.createQuery("select p from Product p where p.name = :fname", Product.class)
                 .setParameter("fname", "Moka")
