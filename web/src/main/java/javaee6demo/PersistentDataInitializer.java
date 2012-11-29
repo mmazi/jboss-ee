@@ -10,6 +10,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.Arrays;
 import java.util.List;
 
@@ -57,12 +58,14 @@ public class PersistentDataInitializer {
 
         log.debug("Done initializing, now querying...");
 
-        Unit unitKgFind = em.find(Unit.class, "kg");
-        log.debug("kg unit (find): {}", unitKgFind);
-        Unit unitKgQuery = em.createQuery("select u from Unit u where u.id = :uid", Unit.class).setParameter("uid", "kg").getSingleResult();
-        log.debug("kg unit (query): {}", unitKgQuery);
+        Unit unitKgByFind = em.find(Unit.class, "kg");
+        log.debug("kg unit (find): {}", unitKgByFind);
+        TypedQuery<Unit> unitQuery = em.createQuery("select u from Unit u where u.id = :uid", Unit.class);
+        unitQuery.setParameter("uid", "kg");
+        Unit unitKgByQuery = unitQuery.getSingleResult();
+        log.debug("kg unit (query): {}", unitKgByQuery);
 
-        log.debug("Enakost kg: {}, {}", unitKgFind == unitKgQuery, kg == unitKgFind);
+        log.debug("Enakost kg: {}, {}", unitKgByFind == unitKgByQuery, kg == unitKgByFind);
 
         Product moka = em.createQuery("select p from Product p where p.name = :fname", Product.class)
                 .setParameter("fname", "Moka")
