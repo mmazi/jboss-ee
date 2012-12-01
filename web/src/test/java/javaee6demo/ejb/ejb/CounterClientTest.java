@@ -30,12 +30,12 @@ public class CounterClientTest extends Arquillian {
 
     @Deployment
     public static Archive createDeployment() {
-        Archive webArchive = ShrinkWrap.create(JavaArchive.class)
+        Archive archive = ShrinkWrap.create(JavaArchive.class)
                 .addClass(CounterClient1.class)
                 .addClass(StatefulCounter.class)
                 .addClass(StatelessCounterX.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
-        log.debug("webArchive = {}", webArchive);
-        return webArchive;
+        log.debug("archive = {}", archive);
+        return archive;
     }
 }
