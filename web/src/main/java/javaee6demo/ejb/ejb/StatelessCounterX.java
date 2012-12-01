@@ -10,7 +10,11 @@ import javax.ejb.Stateless;
 public class StatelessCounterX {
     private int count = 0;
 
-    public int next() {
-        return ++count;
+    public void next() {
+        ++count;
+    }
+
+    public int getCount() {
+        return count;
     }
 }
