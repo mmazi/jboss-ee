@@ -1,13 +1,13 @@
-package javaee6demo.ejb;
+package javaee6demo.ejb.ejb;
 
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 
 /**
  * @author Matija Mazi <br/>
  * @created 8.2.12 18:07
  */
-@Stateless
-public class StatelessCounterX {
+@Stateful
+public class StatefulCounter {
     private int count = 0;
 
     public int next() {

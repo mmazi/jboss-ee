@@ -1,4 +1,4 @@
-package javaee6demo.ejb;
+package javaee6demo.ejb.ejb;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
