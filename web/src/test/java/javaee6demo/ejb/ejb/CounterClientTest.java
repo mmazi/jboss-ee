@@ -20,17 +20,17 @@ import javax.ejb.EJB;
 public class CounterClientTest extends Arquillian {
     private static final Logger log = LoggerFactory.getLogger(CounterClientTest.class);
 
-    @EJB private CounterClient1 counterClient1;
+    @EJB private CounterClient counterClient;
 
     @Test
     public void testCount() throws Exception {
-        Assert.assertEquals(counterClient1.getCount(), 10000);
+        Assert.assertEquals(counterClient.getCount(), 10000);
     }
 
     @Deployment
     public static Archive createDeployment() {
         Archive archive = ShrinkWrap.create(JavaArchive.class)
-                .addClass(CounterClient1.class)
+                .addClass(CounterClient.class)
                 .addClass(Counter.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         log.debug("archive = {}", archive);
