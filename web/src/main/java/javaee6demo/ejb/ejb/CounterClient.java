@@ -13,18 +13,16 @@ import javax.ejb.Startup;
  * @created 8.2.12 18:07
  */
 @Startup @Singleton
-public class CounterClient1 {
-    private static final Logger log = LoggerFactory.getLogger(CounterClient1.class);
+public class CounterClient {
+    private static final Logger log = LoggerFactory.getLogger(CounterClient.class);
 
     @EJB private Counter counter;
 
     @PostConstruct
     public void count() {
         log.debug("Counting.... ");
-        for (int i = 1; i <= 100; i++) {
-            for (int i1 = 1; i1 <= 100; i1++) {
-                counter.next();
-            }
+        for (int i = 1; i <= 10000; i++) {
+            counter.next();
         }
         log.debug("Final counter value: {}", counter.getCount());
     }
