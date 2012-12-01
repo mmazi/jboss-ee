@@ -2,10 +2,15 @@ package javaee6demo.ejb.tx;
 
 import javaee6demo.model.Order;
 import javaee6demo.model.Product;
+import javaee6demo.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.DependsOn;
 import javax.ejb.EJB;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -16,21 +21,21 @@ import java.util.List;
  *
  * Container-managed transactions demo.
  */
-//@Startup @Singleton @DependsOn("PersistentDataInitializer")
+@Startup @Singleton @DependsOn("PersistentDataInitializer")
 public class TransactionsExample {
     private static final Logger log = LoggerFactory.getLogger(TransactionsExample.class);
 
     @PersistenceContext private EntityManager em;
     @EJB private OrderCalculator priceCalculator;
 
-//    @PostConstruct
+    @PostConstruct
     public void postConstruct() {
-        createAnOrder();
-        calculateAllTotals();
+//        createAnOrder();
+//        calculateAllTotals();
     }
 
     public void createAnOrder() {
-        Order secondOrder = new Order(null);
+        Order secondOrder = new Order(em.find(User.class, "mm"));
         Product lestev = em.createQuery("select p from Product p where p.name = :productName", Product.class)
                 .setParameter("productName", "Lestev")
                 .getSingleResult();
