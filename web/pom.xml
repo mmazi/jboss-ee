@@ -14,6 +14,7 @@
     <packaging>war</packaging>
     <name>Web frontend</name>
 
+<!--
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -25,6 +26,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+-->
 
     <dependencies>
         <dependency>
@@ -32,6 +34,7 @@
             <artifactId>model</artifactId>
             <type>jar</type>
         </dependency>
+<!--
         <dependency>
             <groupId>org.richfaces.ui</groupId>
             <artifactId>richfaces-components-ui</artifactId>
@@ -45,6 +48,7 @@
             <artifactId>guava</artifactId>
             <version>12.0</version>
         </dependency>
+-->
     </dependencies>
 
     <build>
@@ -60,7 +64,6 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
-
             </plugin>
             <plugin>
                 <groupId>org.jboss.as.plugins</groupId>
