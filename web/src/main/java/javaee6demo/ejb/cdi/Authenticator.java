@@ -39,7 +39,7 @@ public class Authenticator implements Serializable {
 
     private String username;
 
-    public String login() {
+    public String login() throws ServletException {
         try {
             user = em.createQuery("select u from User u where u.username = :un and u.password = :pw", User.class)
                     .setParameter("un", cred.getUsername())

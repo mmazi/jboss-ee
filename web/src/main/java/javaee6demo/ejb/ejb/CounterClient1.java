@@ -34,4 +34,11 @@ public class CounterClient1 {
         log.debug("Final stateless value: {}", statelessCounter.getCount());
     }
 
+    public int getStatelessCount() {
+        return statelessCounter.getCount();
+    }
+
+    public int getStatefulCount() {
+        return statefulCounter.getCount();
+    }
 }
