@@ -118,7 +118,7 @@ public class Order implements Serializable {
 
     public enum Status {
         BSK("Basket"),
-        RCV("Received"),
+        CNF("Confirmed"),
         PAID("Paid"),
         PKG("Packaging"),
         SNT("Sent"),
