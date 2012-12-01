@@ -7,7 +7,7 @@ import javax.ejb.Stateless;
  * @created 8.2.12 18:07
  */
 @Stateless
-public class StatelessCounterX {
+public class Counter {
     private int count = 0;
 
     public void next() {
