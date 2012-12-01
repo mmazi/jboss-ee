@@ -40,6 +40,8 @@ public class Order implements Serializable {
 
     private String comments;
 
+    private Double total;
+
     protected Order() { }
 
     public Order(User creator) {
@@ -70,7 +72,7 @@ public class Order implements Serializable {
         return items.add(item);
     }
 
-    public void addItem(Product product, double quantity) {
+    public void addItem(Product product, Double quantity) {
         addItem(new OrderItem(this, product, quantity));
     }
 
@@ -104,6 +106,14 @@ public class Order implements Serializable {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
     @Override
