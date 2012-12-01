@@ -10,6 +10,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Matija Mazi <br/>
@@ -18,6 +19,8 @@ import java.util.List;
 @Entity
 @Table(name = "ORDERS")
 public class Order implements Serializable {
+    public static final Random RANDOM = new Random();
+
     @Id @Size(max = 40)
     @XmlAttribute(required = true)
     @XmlID
@@ -128,7 +131,7 @@ public class Order implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        this.id = MessageFormat.format("O/{0,date,medium}_{0,time,medium}", new Date());
+        this.id = MessageFormat.format("O/{0,date,short}_{1}", new Date(), Math.abs(RANDOM.nextInt(10000)));
     }
 
     public enum Status {
