@@ -35,4 +35,11 @@
         <exception-type>java.lang.Exception</exception-type>
         <location>/error.html</location>
     </error-page>
+
+<!--
+    <context-param>
+        <param-name>org.richfaces.enableControlSkinning</param-name>
+        <param-value>false</param-value>
+    </context-param>
+-->
 </web-app>
