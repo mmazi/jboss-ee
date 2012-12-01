@@ -29,12 +29,15 @@ public class Product implements Serializable {
     @ManyToOne
     private ProductCategory category;
 
+    private Double price;
+
     protected Product() { }
 
-    public Product(String name, Unit unit, ProductCategory category) {
+    public Product(String name, Unit unit, ProductCategory category, Double price) {
         this.name = name;
         this.unit = unit;
         this.category = category;
+        this.price = price;
     }
 
     public Long getId() {
@@ -63,6 +66,14 @@ public class Product implements Serializable {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     @Override

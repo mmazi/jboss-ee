@@ -33,9 +33,9 @@ public class PersistentDataInitializer {
         Unit no = new Unit("št.", "");
         Unit kg = new Unit("kg", "Kilogram");
 
-        Product glasses = new Product("Očala", no, null);
-        Product ladder = new Product("Lestev", no, null);
-        Product flour = new Product("Moka", kg, null);
+        Product glasses = new Product("Očala", no, null, 20.);
+        Product ladder = new Product("Lestev", no, null, 30.);
+        Product flour = new Product("Moka", kg, null, 1.);
 
         order.addItem(glasses, 2.);
         order.addItem(flour, 1.3);
