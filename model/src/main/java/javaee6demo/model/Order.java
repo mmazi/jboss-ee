@@ -46,7 +46,7 @@ public class Order implements Serializable {
         this.creator = creator;
         this.assignee = creator;
         created = new Date();
-        status = Status.RCV;
+        status = Status.BSK;
     }
 
     public String getId() {
@@ -117,6 +117,7 @@ public class Order implements Serializable {
     }
 
     public enum Status {
+        BSK("Basket"),
         RCV("Received"),
         PAID("Paid"),
         PKG("Packaging"),
