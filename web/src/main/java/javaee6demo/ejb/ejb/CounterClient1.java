@@ -30,8 +30,8 @@ public class CounterClient1 {
                 statelessCounter.next();
             }
         }
-        log.debug("Final stateful value: {}", statefulCounter.next());
-        log.debug("Final stateless value: {}", statelessCounter.next());
+        log.debug("Final stateful value: {}", statefulCounter.getCount());
+        log.debug("Final stateless value: {}", statelessCounter.getCount());
     }
 
 }
