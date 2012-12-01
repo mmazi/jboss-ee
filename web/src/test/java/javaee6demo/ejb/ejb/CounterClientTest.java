@@ -24,16 +24,14 @@ public class CounterClientTest extends Arquillian {
 
     @Test
     public void testCount() throws Exception {
-        Assert.assertEquals(counterClient1.getStatefulCount(), 10000);
-        Assert.assertEquals(counterClient1.getStatelessCount(), 10000);
+        Assert.assertEquals(counterClient1.getCount(), 10000);
     }
 
     @Deployment
     public static Archive createDeployment() {
         Archive archive = ShrinkWrap.create(JavaArchive.class)
                 .addClass(CounterClient1.class)
-                .addClass(StatefulCounter.class)
-                .addClass(StatelessCounterX.class)
+                .addClass(Counter.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         log.debug("archive = {}", archive);
         return archive;

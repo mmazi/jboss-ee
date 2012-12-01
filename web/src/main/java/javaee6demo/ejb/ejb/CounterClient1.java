@@ -16,29 +16,20 @@ import javax.ejb.Startup;
 public class CounterClient1 {
     private static final Logger log = LoggerFactory.getLogger(CounterClient1.class);
 
-    @EJB private StatelessCounterX statelessCounter;
-    @EJB private StatefulCounter statefulCounter;
+    @EJB private Counter counter;
 
     @PostConstruct
     public void count() {
         log.debug("Counting.... ");
         for (int i = 1; i <= 100; i++) {
             for (int i1 = 1; i1 <= 100; i1++) {
-                statefulCounter.next();
-            }
-            for (int i1 = 1; i1 <= 100; i1++) {
-                statelessCounter.next();
+                counter.next();
             }
         }
-        log.debug("Final stateful value: {}", statefulCounter.getCount());
-        log.debug("Final stateless value: {}", statelessCounter.getCount());
+        log.debug("Final counter value: {}", counter.getCount());
     }
 
-    public int getStatelessCount() {
-        return statelessCounter.getCount();
-    }
-
-    public int getStatefulCount() {
-        return statefulCounter.getCount();
+    public int getCount() {
+        return counter.getCount();
     }
 }
