@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ejb.Stateful;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
@@ -36,7 +37,7 @@ public class UserDataProducer implements Serializable {
         usersOrders = new ArrayList<Order>(new LinkedHashSet<Order>(usersOrders));
     }
 
-    @Produces @SessionScoped @Named
+    @Produces @RequestScoped @Named
     public List<Order> getUsersOrders() {
         return usersOrders;
     }
