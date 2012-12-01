@@ -5,11 +5,7 @@ import javaee6demo.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.DependsOn;
 import javax.ejb.EJB;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -17,16 +13,17 @@ import java.util.List;
 /**
  * @author Matija Mazi <br/>
  * @created 12/1/12 10:07 AM
+ *
+ * Container-managed transactions demo.
  */
-@Startup @Singleton @DependsOn("PersistentDataInitializer")
-public class TotalsAction {
-    private static final Logger log = LoggerFactory.getLogger(TotalsAction.class);
-
+//@Startup @Singleton @DependsOn("PersistentDataInitializer")
+public class TransactionsExample {
+    private static final Logger log = LoggerFactory.getLogger(TransactionsExample.class);
 
     @PersistenceContext private EntityManager em;
     @EJB private OrderCalculator priceCalculator;
 
-    @PostConstruct
+//    @PostConstruct
     public void postConstruct() {
         createAnOrder();
         calculateAllTotals();
