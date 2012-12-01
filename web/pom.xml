@@ -14,19 +14,34 @@
     <packaging>war</packaging>
     <name>Web frontend</name>
 
-<!--
+    <properties>
+        <jboss.version>7.1.1.Final</jboss.version>
+    </properties>
+
+    <!--
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.richfaces</groupId>
+                    <artifactId>richfaces-bom</artifactId>
+                    <version>4.2.3.Final</version>
+                    <scope>import</scope>
+                    <type>pom</type>
+                </dependency>
+            </dependencies>
+        </dependencyManagement>
+    -->
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.richfaces</groupId>
-                <artifactId>richfaces-bom</artifactId>
-                <version>4.2.3.Final</version>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>1.0.3.Final</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
--->
 
     <dependencies>
         <dependency>
@@ -49,6 +64,18 @@
             <version>12.0</version>
         </dependency>
 -->
+        <dependency>
+            <groupId>org.jboss.arquillian.testng</groupId>
+            <artifactId>arquillian-testng-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-arquillian-container-remote</artifactId>
+            <version>${jboss.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -68,7 +95,7 @@
             <plugin>
                 <groupId>org.jboss.as.plugins</groupId>
                 <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>7.1.1.Final</version>
+                <version>${jboss.version}</version>
                 <executions>
                     <execution>
                         <phase>install</phase>
