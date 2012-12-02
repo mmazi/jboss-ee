@@ -18,6 +18,7 @@ import java.io.Serializable;
  */
 @Named
 @Stateful
+//@SecurityDomain("demoSecDom")
 public class SecurityDemo implements Serializable {
     private static final Logger log = LoggerFactory.getLogger(SecurityDemo.class);
 
