@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>helloWorldServlet</servlet-name>
-        <servlet-class>com.housing.javaee6demo.servlet.HelloWorldServlet</servlet-class>
+        <servlet-class>javaee6demo.servlet.HelloWorldServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
