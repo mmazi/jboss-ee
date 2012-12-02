@@ -16,7 +16,7 @@
                 <version>2.1</version>
                 <configuration>
                     <wsdlDirectory>src/main/wsdl</wsdlDirectory>
-                    <packageName>javaee6demo.ws.imported</packageName>
+                    <packageName>com.housing.javaee6demo.ws.imported</packageName>
                     <sourceDestDir>src/main/java</sourceDestDir>
                 </configuration>
             </plugin>

@@ -8,7 +8,7 @@
 
     <application>
         <resource-bundle>
-            <base-name>javaee6demo.myMessages</base-name>
+            <base-name>com.housing.javaee6demo.myMessages</base-name>
             <var>msgs</var>
         </resource-bundle>
         <locale-config>

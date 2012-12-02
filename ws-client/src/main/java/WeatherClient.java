@@ -1,8 +1,8 @@
-import javaee6demo.ws.imported.Forecast;
-import javaee6demo.ws.imported.ForecastReturn;
-import javaee6demo.ws.imported.Weather;
-import javaee6demo.ws.imported.WeatherReturn;
-import javaee6demo.ws.imported.WeatherSoap;
+import com.housing.javaee6demo.ws.imported.Forecast;
+import com.housing.javaee6demo.ws.imported.ForecastReturn;
+import com.housing.javaee6demo.ws.imported.Weather;
+import com.housing.javaee6demo.ws.imported.WeatherReturn;
+import com.housing.javaee6demo.ws.imported.WeatherSoap;
 
 import javax.xml.namespace.QName;
 import java.net.URL;
