@@ -1,0 +1,3 @@
+<jboss-web>
+    <security-domain>demoSecDom</security-domain>
+</jboss-web>

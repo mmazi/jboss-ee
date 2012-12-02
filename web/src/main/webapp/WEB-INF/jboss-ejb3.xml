@@ -10,7 +10,7 @@
     <assembly-descriptor>
         <s:security>
             <ejb-name>*</ejb-name>
-            <s:security-domain>other</s:security-domain>
+            <s:security-domain>demoSecDom</s:security-domain>
         </s:security>
     </assembly-descriptor>
 </jboss:ejb-jar>
