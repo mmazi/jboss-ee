@@ -74,6 +74,7 @@
             <groupId>org.jboss.as</groupId>
             <artifactId>jboss-as-arquillian-container-remote</artifactId>
             <version>${jboss.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
