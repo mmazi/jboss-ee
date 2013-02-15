@@ -106,6 +106,46 @@
                 <version>${jboss.version}</version>
                 <executions>
                     <execution>
+                        <id>add-datasource</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <address>subsystem=datasources,data-source=DemoDS</address>
+                            <resource>
+                                <enable-resource>true</enable-resource>
+                                <properties>
+                                    <jndi-name>java:jboss/datasources/DemoDS</jndi-name>
+                                    <enabled>true</enabled>
+                                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</connection-url>
+                                    <driver-name>h2</driver-name>
+                                    <!-- <driver-class>org.h2.Driver</driver-class> -->
+                                    <!-- <security.user-name></security.user-name> -->
+                                    <!-- <security.password></security.password> -->
+                                    <pool-name>mypool</pool-name>
+                                </properties>
+                            </resource>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>add-security-domain</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <address>subsystem=security,security-domain=demoSecDom</address>
+                            <resource>
+                                <properties>
+                                    <cache-type>default</cache-type>
+                                </properties>
+                            </resource>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <phase>install</phase>
                         <goals>
                             <goal>deploy</goal>
