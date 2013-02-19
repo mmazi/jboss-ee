@@ -5,3 +5,7 @@
 .idea
 target/
 .idea
+.classpath
+.metadata
+.project
+.settings

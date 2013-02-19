@@ -2,7 +2,8 @@
     <persistence-unit name="primary">
         <jta-data-source>java:jboss/datasources/DemoDS</jta-data-source>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <!-- note: create-drop fails for h2 database -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>
